@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 10vh;
+}
+
+.logo{
+  width: 170px;
+}
+
+.navigation-active {
+  background-color: $accent-color;
+  color: $text-color-light;
+}
+
+mat-toolbar{
+  height: 10vh;
+}
