@@ -1,13 +1,42 @@
 <form class="form" [formGroup]="brennholzbestellung" (ngSubmit)="sendBestellung()">
   <mat-form-field appearance="standard">
     <mat-label>Vor- und Nachname</mat-label>
-    <input matInput maxlength="15" formControlName="name" #nameInput>
+    <input matInput maxlength="15" formControlName="name">
     <mat-error>Name is required</mat-error>
+    <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
 
   <mat-form-field appearance="standard">
     <mat-label>Straße und Hausnummer</mat-label>
-    <input matInput maxlength="15" formControlName="strNr" #nameInput>
+    <input matInput maxlength="15" formControlName="strNr">
+    <mat-error>Name is required</mat-error>
+    <mat-icon matSuffix>home</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Telefonnummer</mat-label>
+    <input type="tel" matInput maxlength="15" formControlName="tel">
+    <mat-error>Name is required</mat-error>
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>PLZ und Ort</mat-label>
+    <input matInput maxlength="15" formControlName="plzOrt">
+    <mat-error>Name is required</mat-error>
+    <mat-icon matSuffix>location_city</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>E-Mail</mat-label>
+    <input matInput maxlength="15" formControlName="email">
+    <mat-error>Name is required</mat-error>
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Raummeter</mat-label>
+    <input type="number" matInput maxlength="15" formControlName="raummeter">
     <mat-error>Name is required</mat-error>
   </mat-form-field>
 

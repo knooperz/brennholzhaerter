@@ -10,6 +10,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class LayoutComponent {
 
+  title: string = "Startseite";
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -18,4 +20,7 @@ export class LayoutComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  changeSite(input: string){
+    this.title = input;
+  }
 }

@@ -16,6 +16,10 @@ export class BrennholzbestellungComponent implements OnInit {
     this.brennholzbestellung = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(5)]],
       strNr: [null, [Validators.required, Validators.minLength(5)]],
+      tel: [null, [Validators.required, Validators.minLength(5)]],
+      plzOrt: [null, [Validators.required, Validators.minLength(5)]],
+      email: [null, [Validators.required, Validators.minLength(5)]],
+      raummeter: [null, [Validators.required, Validators.minLength(5)]],
     })
   }
 
