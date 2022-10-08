@@ -8,7 +8,7 @@
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="" routerLinkActive="navigation-active"  [routerLinkActiveOptions]="{ exact: true }">Startseite</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="brennholzbestellung" routerLinkActive="navigation-active"  [routerLinkActiveOptions]="{ exact: true }">Brennholzbestellung</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -25,5 +25,6 @@
       <span>Brennholz Härter</span>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

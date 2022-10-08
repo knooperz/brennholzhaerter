@@ -1,0 +1,14 @@
+<form class="form" [formGroup]="brennholzbestellung" (ngSubmit)="sendBestellung()">
+  <mat-form-field appearance="standard">
+    <mat-label>Vor- und Nachname</mat-label>
+    <input matInput maxlength="15" formControlName="name" #nameInput>
+    <mat-error>Name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Straße und Hausnummer</mat-label>
+    <input matInput maxlength="15" formControlName="strNr" #nameInput>
+    <mat-error>Name is required</mat-error>
+  </mat-form-field>
+
+</form>
