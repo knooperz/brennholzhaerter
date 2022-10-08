@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --baser-href https://knooperz.github.io/brennholzhaerter/",
+    "build": "ng build --base-href https://knooperz.github.io/brennholzhaerter/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
