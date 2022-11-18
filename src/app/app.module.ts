@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { BrennholzbestellungComponent } from './brennholzbestellung/brennholzbestellung.component';
+import { StartseiteComponent } from './startseite/startseite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     BrennholzbestellungComponent,
+    StartseiteComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,43 +1,65 @@
-<form class="form" [formGroup]="brennholzbestellung" (ngSubmit)="sendBestellung()">
-  <mat-form-field appearance="standard">
-    <mat-label>Vor- und Nachname</mat-label>
-    <input matInput maxlength="15" formControlName="name">
-    <mat-error>Name is required</mat-error>
-    <mat-icon matSuffix>person</mat-icon>
-  </mat-form-field>
+<div class="container">
 
-  <mat-form-field appearance="standard">
-    <mat-label>Straße und Hausnummer</mat-label>
-    <input matInput maxlength="15" formControlName="strNr">
-    <mat-error>Name is required</mat-error>
-    <mat-icon matSuffix>home</mat-icon>
-  </mat-form-field>
 
-  <mat-form-field appearance="standard">
-    <mat-label>Telefonnummer</mat-label>
-    <input type="tel" matInput maxlength="15" formControlName="tel">
-    <mat-error>Name is required</mat-error>
-    <mat-icon matSuffix>phone</mat-icon>
-  </mat-form-field>
+  <form class="form" [formGroup]="brennholzbestellung" (ngSubmit)="sendBestellung()">
+    <mat-form-field appearance="standard">
+      <mat-label>Vor- und Nachname</mat-label>
+      <input matInput maxlength="15" formControlName="name">
+      <mat-error>Name is required</mat-error>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
 
-  <mat-form-field appearance="standard">
-    <mat-label>PLZ und Ort</mat-label>
-    <input matInput maxlength="15" formControlName="plzOrt">
-    <mat-error>Name is required</mat-error>
-    <mat-icon matSuffix>location_city</mat-icon>
-  </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Straße und Hausnummer</mat-label>
+      <input matInput maxlength="15" formControlName="strNr">
+      <mat-error>Name is required</mat-error>
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
 
-  <mat-form-field appearance="standard">
-    <mat-label>E-Mail</mat-label>
-    <input matInput maxlength="15" formControlName="email">
-    <mat-error>Name is required</mat-error>
-    <mat-icon matSuffix>email</mat-icon>
-  </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Telefonnummer</mat-label>
+      <input type="tel" matInput maxlength="15" formControlName="tel">
+      <mat-error>Name is required</mat-error>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
 
-  <mat-form-field appearance="standard">
-    <mat-label>Raummeter</mat-label>
-    <input type="number" matInput maxlength="15" formControlName="raummeter">
-    <mat-error>Name is required</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>PLZ und Ort</mat-label>
+      <input matInput maxlength="15" formControlName="plzOrt">
+      <mat-error>Name is required</mat-error>
+      <mat-icon matSuffix>location_city</mat-icon>
+    </mat-form-field>
 
-</form>
+    <mat-form-field appearance="standard">
+      <mat-label>E-Mail</mat-label>
+      <input matInput maxlength="15" formControlName="email">
+      <mat-error>Name is required</mat-error>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Raummeter</mat-label>
+      <input type="number" matInput maxlength="15" formControlName="raummeter">
+      <mat-error>Name is required</mat-error>
+    </mat-form-field>
+
+    <label id="radio-group-label">Gewünschte Scheitholzlänge:</label>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="25cm" active>25cm</mat-radio-button>
+      <mat-radio-button value="33cm">33cm</mat-radio-button>
+      <mat-radio-button value="50cm">50cm</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field class="datum">
+      <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  </form>
+
+
+
+</div>

@@ -20,6 +20,7 @@ export class BrennholzbestellungComponent implements OnInit {
       plzOrt: [null, [Validators.required, Validators.minLength(5)]],
       email: [null, [Validators.required, Validators.minLength(5)]],
       raummeter: [null, [Validators.required, Validators.minLength(5)]],
+      date: [null, [Validators.required]]
     })
   }
 
