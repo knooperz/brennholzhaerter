@@ -18,9 +18,29 @@
   z-index: 1;
   height: 10vh;
 }
-
+.logodiv{
+  display: flex;
+  background-color: white;
+  align-items: center;
+}
 .logo{
   width: 170px;
+  justify-self: flex-start;
+  margin: 10px;
+}
+
+.toolbar{
+  display: flex;
+  justify-content: flex-end;
+}
+.menu{
+
+}
+
+.test{
+  color: white;
+  margin: 1vw;
+  text-decoration: none;
 }
 
 .navigation-active {

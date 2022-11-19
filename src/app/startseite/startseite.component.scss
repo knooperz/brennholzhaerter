@@ -1,6 +1,13 @@
-.tile
+.leistungen
 {
-  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &-item{
+    width: 400px;
+    margin: 10px;
+  }
 }
 
 .img{

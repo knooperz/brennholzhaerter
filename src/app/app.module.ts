@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { BrennholzbestellungComponent } from './brennholzbestellung/brennholzbestellung.component';
 import { StartseiteComponent } from './startseite/startseite.component';
+import { HolztransporteComponent } from './holztransporte/holztransporte.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { StartseiteComponent } from './startseite/startseite.component';
     LayoutComponent,
     BrennholzbestellungComponent,
     StartseiteComponent,
+    HolztransporteComponent,
   ],
   imports: [
     BrowserModule,

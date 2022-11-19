@@ -7,24 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartseiteComponent implements OnInit {
 
-  tiles: Tile[] = [
-    {text: 'Brennholzbestellung', cols: 3, rows: 3,
-    img: ''},
-    {text: 'Holztransporte', cols: 1, rows: 6,img: ''},
-    {text: 'Lohnspalten', cols: 1, rows: 6,img: ''},
-    {text: 'Sonderfällungen', cols: 2, rows: 3,img: '../../assets/images/teamNew.png'},
-    {text: 'Winterdienst', cols: 3, rows: 3, img: ''}, {text: 'Winterdienst', cols: 3, rows: 3, img: ''}
-  ];
+  leistungen: Leistung[] = [
+    {title: 'Brennholzbestellung',
+    img: '../../assets/images/brennholz.jpg', text: ''},
+    {title: 'Holztransporte', img: '../../assets/images/laster.jpg', text: ''},
+    {title: 'Lohnspalten', img: '', text: ''},
+    {title: 'Sonderfällungen', img: '../../assets/images/teamNew.png', text: ''},
+    {title: 'Winterdienst', img: '', text: ''}];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  mehrClick(link: string){
+    
+  }
+
 }
-export interface Tile {
-  rows: number;
+export interface Leistung {
+  title: string;
   text: string;
   img: string
-  cols: number;
+
 }

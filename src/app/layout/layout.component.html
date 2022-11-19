@@ -1,28 +1,49 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
 
     <mat-toolbar>
       <img class="logo" src="../../assets/images/header.png">
     </mat-toolbar>
 
     <mat-nav-list>
-      <a mat-list-item (click)="changeSite('Startseite')" routerLink='' routerLinkActive="navigation-active">Startseite</a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>Brennholzbestellung</a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'><mat-icon matSuffix>groups</mat-icon>   Team</a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'><mat-icon matSuffix>groups</mat-icon>   Produkte</a>
-
+      <a mat-list-item (click)="changeSite('Startseite')" routerLink=''
+        routerLinkActive="navigation-active">Startseite</a>
+      <a mat-list-item (click)="changeSite('Brennholzbestellung')"
+        routerLink='brennholzbestellung'>Brennholzbestellung</a>
+      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+        <mat-icon matSuffix>groups</mat-icon> Team
+      </a>
+      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+        <mat-icon matSuffix>groups</mat-icon> Produkte
+      </a>
     </mat-nav-list>
 
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="toolbar" color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>{{title}}</span>
+      <div class="logodiv">
+      <img class="logo" src="../../assets/images/header.png">
+    </div>
+
+      <div class="menu" *ngIf="!(isHandset$ | async)">
+        <a class="test" mat-list-item (click)="changeSite('Startseite')" routerLink=''
+          routerLinkActive="navigation-active">Startseite</a>
+        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')"
+          routerLink='brennholzbestellung'>Brennholzbestellung</a>
+        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+           Über uns
+        </a>
+        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+           Produkte
+        </a>
+      </div>
+
     </mat-toolbar>
 
     <!-- Add Content Here -->
