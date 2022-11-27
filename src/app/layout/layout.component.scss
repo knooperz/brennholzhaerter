@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .sidenav-container {
-  height: 100%;
+  height: 90%;
 }
 
 .sidenav {
@@ -18,36 +18,58 @@
   z-index: 1;
   height: 10vh;
 }
-.logodiv{
+.logodiv {
   display: flex;
   background-color: white;
   align-items: center;
 }
-.logo{
+.logo {
   width: 170px;
   justify-self: flex-start;
   margin: 10px;
 }
 
-.toolbar{
+.toolbar {
   display: flex;
   justify-content: flex-end;
 }
-.menu{
-
+.menu {
+  // display: flex;
+  // justify-content: flex-end;
 }
 
-.test{
+.links {
   color: white;
   margin: 1vw;
   text-decoration: none;
 }
 
 .navigation-active {
-  background-color: $accent-color;
-  color: $text-color-light;
+  text-decoration: underline;
 }
 
-mat-toolbar{
+mat-toolbar {
   height: 10vh;
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+footer{
+  height: 100px;
+  background-color: #B9C532;
+
+  display: flex;
+  justify-content: space-between;
+
+  .spruch{
+    font-size: 2em;
+    align-self: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .adress{
+    color: white;
+    display: flex;
+  }
 }

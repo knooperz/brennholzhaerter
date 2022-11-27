@@ -7,14 +7,12 @@
     </mat-toolbar>
 
     <mat-nav-list>
-      <a mat-list-item (click)="changeSite('Startseite')" routerLink=''
-        routerLinkActive="navigation-active">Startseite</a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')"
-        routerLink='brennholzbestellung'>Brennholzbestellung</a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+      <a mat-list-item routerLink='' routerLinkActive="navigation-active">Startseite</a>
+      <a mat-list-item routerLink='brennholzbestellung'>Brennholzbestellung</a>
+      <a mat-list-item routerLink='brennholzbestellung'>
         <mat-icon matSuffix>groups</mat-icon> Team
       </a>
-      <a mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
+      <a mat-list-item routerLink='brennholzbestellung'>
         <mat-icon matSuffix>groups</mat-icon> Produkte
       </a>
     </mat-nav-list>
@@ -22,25 +20,26 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar class="toolbar" color="primary">
+    <mat-toolbar color="primary">
+
+      <div class="logodiv" *ngIf="!(isHandset$ | async)">
+        <img class="logo" routerLink="" src="../../assets/images/header.png">
+      </div>
+
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <div class="logodiv">
-      <img class="logo" src="../../assets/images/header.png">
-    </div>
 
       <div class="menu" *ngIf="!(isHandset$ | async)">
-        <a class="test" mat-list-item (click)="changeSite('Startseite')" routerLink=''
-          routerLinkActive="navigation-active">Startseite</a>
-        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')"
-          routerLink='brennholzbestellung'>Brennholzbestellung</a>
-        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
-           Über uns
+        <a class="links" mat-list-item routerLink='' routerLinkActive="navigation-active">Startseite</a>
+        <a class="links" mat-list-item routerLink='brennholzbestellung'
+          routerLinkActive="navigation-active">Brennholzbestellung</a>
+        <a class="links" mat-list-item routerLink='brennholzbestellung'>
+          Über uns
         </a>
-        <a class="test" mat-list-item (click)="changeSite('Brennholzbestellung')" routerLink='brennholzbestellung'>
-           Produkte
+        <a class="links" mat-list-item routerLink='brennholzbestellung' routerLinkActive="navigation-active">
+          Produkte
         </a>
       </div>
 
@@ -48,6 +47,27 @@
 
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
-
   </mat-sidenav-content>
+
 </mat-sidenav-container>
+<footer>
+  <div>
+    <a class="links" mat-list-item routerLink='brennholzbestellung' routerLinkActive="navigation-active">
+      Kontakt
+    </a>
+    <br>
+    <a class="links" mat-list-item routerLink='brennholzbestellung' routerLinkActive="navigation-active">
+      Impressum
+    </a>
+  </div>
+
+  <div class="spruch" *ngIf="!(isHandset$ | async)">Hier vielleicht einen super coolen Spruch einfügen!</div>
+
+  <div class="adress">
+    Ahornstraße 27 <br>
+    72469 Meßstetten <br>
+    0175  46 82 586 <br>
+    info@brennholz-haerter.de
+  </div>
+
+</footer>

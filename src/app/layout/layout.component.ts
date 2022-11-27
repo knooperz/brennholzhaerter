@@ -20,7 +20,4 @@ export class LayoutComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  changeSite(input: string){
-    this.title = input;
-  }
 }

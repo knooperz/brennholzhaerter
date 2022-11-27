@@ -25,6 +25,13 @@ export class BrennholzbestellungComponent implements OnInit {
   }
 
   sendBestellung(){
-
+    console.log("send")
   }
+}
+
+export interface Bestellung{
+
+  name: string;
+  
+
 }

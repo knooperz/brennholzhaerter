@@ -8,26 +8,50 @@ import { Component, OnInit } from '@angular/core';
 export class StartseiteComponent implements OnInit {
 
   leistungen: Leistung[] = [
-    {title: 'Brennholzbestellung',
-    img: '../../assets/images/brennholz.jpg', text: ''},
-    {title: 'Holztransporte', img: '../../assets/images/laster.jpg', text: ''},
-    {title: 'Lohnspalten', img: '', text: ''},
-    {title: 'Sonderfällungen', img: '../../assets/images/teamNew.png', text: ''},
-    {title: 'Winterdienst', img: '', text: ''}];
+    {
+      title: 'Brennholzbestellung',
+      img: '../../assets/images/brennholz.jpg',
+      text: '',
+      link: ''
+    },
+    {
+      title: 'Holztransporte',
+      img: '../../assets/images/laster.jpg',
+      text: '',
+       link: 'holztransporte'
+    },
+    {
+      title: 'Lohnspalten',
+      img: '',
+      text: '',
+      link: ''
+    },
+    {
+      title: 'Sonderfällungen',
+      img: '../../assets/images/teamNew.png',
+      text: '',
+      link: ''
+    },
+    {
+      title: 'Winterdienst',
+      img: '',
+      text: '',
+      link: ''
+    }];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  mehrClick(link: string){
-    
+  mehrClick(link: string) {
+
   }
 
 }
 export interface Leistung {
   title: string;
   text: string;
-  img: string
-
+  img: string;
+  link: string;
 }

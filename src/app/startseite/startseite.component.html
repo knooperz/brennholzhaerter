@@ -1,20 +1,20 @@
 <div class="leistungen">
-<div *ngFor="let leistung of leistungen" class="leistungen-item">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{leistung.title}}</mat-card-title>
-      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-    </mat-card-header>
-    <img mat-card-image [src]="leistung.img">
-    <mat-card-content>
-      <p>
-{{leistung. text}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Mehr</button>
-    </mat-card-actions>
-  </mat-card>
-  
-</div>
+  <div *ngFor="let leistung of leistungen" class="leistungen-item">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{leistung.title}}</mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+      </mat-card-header>
+      <img mat-card-image [src]="leistung.img">
+      <mat-card-content>
+        <p>
+          {{leistung. text}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button [routerLink]="leistung.link">Mehr</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
 </div>
