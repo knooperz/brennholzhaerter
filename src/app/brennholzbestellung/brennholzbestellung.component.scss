@@ -1,7 +1,12 @@
 .container {
   display: flex;
   justify-content: space-around;
+  margin-top: 2vh;
 
+  table {
+    width: 40%;
+    height: auto;
+  }
   .form {
     display: flex;
     flex-direction: column;
@@ -10,6 +15,10 @@
     mat-radio-button {
       margin-right: 1vw;
       margin-top: 1vh;
+    }
+
+    .half{
+      width: 15vw;
     }
 
     mat-form-field {
@@ -24,5 +33,9 @@
   .info {
     margin-left: 3vw;
     margin-right: 3vw;
+  }
+
+  button{
+    margin-top: 2vh;
   }
 }

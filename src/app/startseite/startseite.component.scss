@@ -1,15 +1,15 @@
-.leistungen
-{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+ .leistungen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-  &-item{
-    width: 400px;
-    margin: 10px;
+    &-item {
+      width: 400px;
+      margin: 10px;
+    }
   }
-}
 
-.img{
-  height: 100%;
-}
+  .img {
+    height: 100%;
+  }
+

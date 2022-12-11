@@ -12,32 +12,34 @@ export class StartseiteComponent implements OnInit {
       title: 'Brennholzbestellung',
       img: '../../assets/images/brennholz.jpg',
       text: '',
-      link: ''
+      queryParam: { product: 'holztransport' }
     },
     {
       title: 'Holztransporte',
       img: '../../assets/images/laster.jpg',
       text: '',
-       link: 'holztransporte'
+      queryParam: { product: 'holztransport' }
     },
     {
       title: 'Lohnspalten',
-      img: '',
+      img: '../../assets/images/laster.jpg',
       text: '',
-      link: ''
+      queryParam: { product: 'holztransport' }
     },
     {
       title: 'Sonderfällungen',
       img: '../../assets/images/teamNew.png',
       text: '',
-      link: ''
+      queryParam: { product: 'holztransport' }
     },
     {
       title: 'Winterdienst',
-      img: '',
+      img: '../../assets/images/laster.jpg',
       text: '',
-      link: ''
+      queryParam: { product: 'winterdienst' }
     }];
+
+    text: string = "";
 
   constructor() { }
 
@@ -53,5 +55,9 @@ export interface Leistung {
   title: string;
   text: string;
   img: string;
-  link: string;
+  queryParam: ProductQuery;
+}
+
+interface ProductQuery{
+  product: string;
 }

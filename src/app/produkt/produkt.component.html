@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="images">
+
+    <img class="greatImg" [src]="greatImag">
+
+    <div class="smallImages">
+      <div *ngFor=" let image of images">
+        <img class="smallImg" [src]="image" (click)="changeImage(image)">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text" [innerHTML]="textHtml"></div>
+
+</div>

@@ -12,7 +12,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="leistung.link">Mehr</button>
+        <button mat-button routerLink="produkt" [queryParams]="leistung.queryParam">Mehr</button>
       </mat-card-actions>
     </mat-card>
 

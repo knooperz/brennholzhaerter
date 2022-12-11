@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  margin: 1em;
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+
+    .greatImg {
+      margin-top: 5em;
+      width: 810px;
+    }
+    .smallImages {
+      display: flex;
+      justify-content: space-between;
+      margin: 1em;
+      width: 810px;
+    }
+
+    .smallImg {
+      width: 270px;
+    }
+  }
+
+  .text{
+    margin-top: 5em;
+  }
+}
