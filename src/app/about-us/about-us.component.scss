@@ -1,0 +1,14 @@
+.first
+{
+  display: flex;
+  justify-content: space-around;
+  margin: 1em;
+
+  .textDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+  }
+}
