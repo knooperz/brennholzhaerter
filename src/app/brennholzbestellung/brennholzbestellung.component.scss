@@ -1,11 +1,13 @@
 .container {
   display: flex;
-  justify-content: space-around;
   margin-top: 2vh;
+  flex-direction: column;
+  align-items: center;
 
   table {
     width: 40%;
-    height: auto;
+    height: 50%;
+    margin-bottom: 2em;
   }
   .form {
     display: flex;
@@ -18,11 +20,11 @@
     }
 
     .half{
-      width: 15vw;
+      width: 25vw;
     }
 
     mat-form-field {
-      width: 30vw;
+      width: 50vw;
     }
 
     .datum{

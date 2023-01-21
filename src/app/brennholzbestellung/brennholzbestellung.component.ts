@@ -12,15 +12,9 @@ export class BrennholzbestellungComponent implements OnInit {
   displayedColumns: string[] = ['holzart', 'zustand', 'laenge', 'preis', 'verfuegbarkeit'];
   brennholzbestellung: FormGroup = new FormGroup({});
   preise: Preis[] = [
-    {holzart: "Buche", zustand: "frisch", laenge: "25cm", preis: 140, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "frisch", laenge: "33cm", preis: 140, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "frisch", laenge: "50cm", preis: 140, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "trocken", laenge: "25cm", preis: 150, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "trocken", laenge: "33cm", preis: 150, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "trocken", laenge: "50cm", preis: 150, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Fichte", zustand: "trocken", laenge: "25cm", preis: 110, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Fichte", zustand: "trocken", laenge: "33cm", preis: 110, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Fichte", zustand: "trocken", laenge: "50cm", preis: 110, verfuegbarkeit: "ausverkauft"},
+    {holzart: "Buche", zustand: "frisch", laenge: "25cm, 33cm, 50cm", preis: 140, verfuegbarkeit: "ausverkauft"},
+    {holzart: "Buche", zustand: "trocken", laenge: "25cm, 33cm, 50cm", preis: 150, verfuegbarkeit: "ausverkauft"},
+    {holzart: "Fichte", zustand: "trocken", laenge: "25cm, 33cm, 50cm", preis: 110, verfuegbarkeit: "ausverkauft"}
   ];
 
   constructor(private fb: FormBuilder, private httpService: HttpService) { }
@@ -74,3 +68,9 @@ interface Preis{
   preis: number;
   verfuegbarkeit: string;
 }
+
+/*TODO 
+Berstellung 2 Formulare: Produktinfos (Holzart, Länge, raummmeter, Holzustand), Adresse => Rest
+Brennholz als Produkt mit Link zu Betstellformular
+Produkte => Dienstleistungen
+*/
