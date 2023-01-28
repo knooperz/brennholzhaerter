@@ -1,6 +1,7 @@
 <div class="leistungen">
+
   <div *ngFor="let leistung of leistungen" class="leistungen-item">
-    <mat-card class="example-card">
+    <mat-card class="leistungen-card">
       <mat-card-header>
         <mat-card-title>{{leistung.title}}</mat-card-title>
         <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
@@ -11,10 +12,13 @@
           {{leistung.text}}
         </p>
       </mat-card-content>
+
       <mat-card-actions>
         <button mat-button routerLink="produkt" [queryParams]="leistung.queryParam">Mehr</button>
       </mat-card-actions>
+      
     </mat-card>
 
   </div>
+
 </div>

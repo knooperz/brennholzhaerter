@@ -9,10 +9,10 @@ export class StartseiteComponent implements OnInit {
 
   leistungen: Leistung[] = [
     {
-      title: 'Brennholzbestellung',
+      title: 'Brennholz',
       img: '../../assets/images/brennholz.jpg',
       text: '',
-      queryParam: { product: 'holztransport' }
+      queryParam: { product: 'brennholz' }
     },
     {
       title: 'Holztransporte',

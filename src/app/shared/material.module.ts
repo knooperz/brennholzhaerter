@@ -13,7 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table'; 
+import {MatTableModule} from '@angular/material/table';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatTableModule} from '@angular/material/table';
     MatNativeDateModule,
     MatGridListModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

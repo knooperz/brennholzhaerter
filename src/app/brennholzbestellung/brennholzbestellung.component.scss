@@ -14,9 +14,16 @@
     flex-direction: column;
     margin-left: 1vw;
 
+    #groupLabel{
+      font-weight: bold;
+    }
+
     mat-radio-button {
       margin-right: 1vw;
       margin-top: 1vh;
+    }
+    mat-radio-group{
+      margin-bottom: 2vh;
     }
 
     .half{
@@ -29,6 +36,11 @@
 
     .datum{
       margin-top: 1vh;
+    }
+
+    .personendateButton{
+      display: flex;
+      justify-content: space-between;
     }
   }
 

@@ -22,10 +22,24 @@
     .smallImg {
       width: 150px;
       margin: 3px;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
 
   .text{
     margin-top: 5em;
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    button{
+      height: 10vh;
+      width: 20vw;
+      font-size: xx-large;
+    }
   }
 }

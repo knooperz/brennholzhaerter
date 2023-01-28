@@ -1,4 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
+
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
 
@@ -20,26 +21,28 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <div class="logodiv" *ngIf="!(isHandset$ | async)">
+      <img class="logo" routerLink="" src="../../assets/images/header.png">
+    </div>
 
-      <div class="logodiv" *ngIf="!(isHandset$ | async)">
-        <img class="logo" routerLink="" src="../../assets/images/header.png">
-      </div>
-
+    <mat-toolbar  color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
       <div class="menu" *ngIf="!(isHandset$ | async)">
-        <a class="links" mat-list-item routerLink='' routerLinkActive="navigation-active">Startseite</a>
-        <a class="links" mat-list-item routerLink='brennholzbestellung'
-          routerLinkActive="navigation-active">Brennholzbestellung</a>
-        <a class="links" mat-list-item routerLink='ueberuns'>
+        <a class="links" mat-list-item routerLink='' routerLinkActive="navigation-active" [routerLinkActiveOptions]="{exact: true}">
+          Startseite
+        </a>
+        <a class="links" mat-list-item routerLink='brennholzbestellung' routerLinkActive="navigation-active" [routerLinkActiveOptions]="{exact: true}">
+          Brennholzbestellung
+        </a>
+        <a class="links" mat-list-item routerLink='ueberuns' routerLinkActive="navigation-active" [routerLinkActiveOptions]="{exact: true}">
           Über uns
         </a>
-        <a class="links" mat-list-item routerLink='' routerLinkActive="navigation-active">
-          Produkte
+        <a class="links" mat-list-item routerLink='' routerLinkActive="navigation-active" [routerLinkActiveOptions]="{exact: true}">
+          Dienstleistungen
         </a>
       </div>
 
@@ -66,7 +69,7 @@
   <div class="adress">
     Ahornstraße 27 <br>
     72469 Meßstetten <br>
-    0175  46 82 586 <br>
+    0175 46 82 586 <br>
     info@brennholz-haerter.de
   </div>
 

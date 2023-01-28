@@ -1,102 +1,126 @@
 <div class="container">
 
-    <table mat-table [dataSource]="preise">
-      <ng-container matColumnDef="holzart">
-        <th mat-header-cell *matHeaderCellDef>Holzart</th>
-        <td mat-cell *matCellDef="let element"> {{element.holzart}} </td>
-      </ng-container>
+  <mat-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="brennholzbestellung" label="Brennholzbestellung">
 
-      <ng-container matColumnDef="zustand">
-        <th mat-header-cell *matHeaderCellDef>Zustand</th>
-        <td mat-cell *matCellDef="let element"> {{element.zustand}} </td>
-      </ng-container>
+      <form [formGroup]="brennholzbestellung" class="form">
 
-      <ng-container matColumnDef="laenge">
-        <th mat-header-cell *matHeaderCellDef>Scheitlängen</th>
-        <td mat-cell *matCellDef="let element"> {{element.laenge}} </td>
-      </ng-container>
+        <label id="groupLabel">Gewünschte Holzart:</label>
+        <mat-radio-group aria-label="Select an option" formControlName="holzart">
+          <mat-radio-button value="25cm" active>Buche, trocken (140€)</mat-radio-button>
+          <mat-radio-button value="33cm">Buche, frisch (150€)</mat-radio-button>
+          <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
+        </mat-radio-group>
 
-      <ng-container matColumnDef="preis">
-        <th mat-header-cell *matHeaderCellDef>Preis in €</th>
-        <td mat-cell *matCellDef="let element"> {{element.preis}} </td>
-      </ng-container>
+        <label id="groupLabel">Gewünschte Scheitholzlänge:</label>
+        <mat-radio-group aria-label="Select an option" formControlName="scheitlaenge">
+          <mat-radio-button value="25cm" active>25cm</mat-radio-button>
+          <mat-radio-button value="33cm">33cm</mat-radio-button>
+          <mat-radio-button value="50cm">50cm</mat-radio-button>
+        </mat-radio-group>
 
-      <ng-container matColumnDef="verfuegbarkeit">
-        <th mat-header-cell *matHeaderCellDef>Verfügbarkeit</th>
-        <td mat-cell *matCellDef="let element"> {{element.verfuegbarkeit}} </td>
-      </ng-container>
+        <mat-form-field appearance="standard">
+          <mat-label>Raummeter</mat-label>
+          <input type="number" matInput maxlength="15" formControlName="raummeter">
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <mat-form-field class="datum">
+          <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-    </table>
+        <div>
+          <button mat-raised-button matStepperNext color="accent">Weiter</button>
+        </div>
 
-  <form class="form" [formGroup]="brennholzbestellung" (ngSubmit)="sendBestellung()">
-    <mat-form-field appearance="standard">
-      <mat-label>Vor- und Nachname</mat-label>
-      <input matInput maxlength="15" formControlName="name">
-      <mat-error>Name is required</mat-error>
-      <mat-icon matSuffix>person</mat-icon>
-    </mat-form-field>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="personendaten" label="Personendaten">
+      <form [formGroup]="personendaten" class="form">
 
-    <mat-form-field appearance="standard">
-      <mat-label>Straße und Hausnummer</mat-label>
-      <input matInput maxlength="15" formControlName="strNr">
-      <mat-error>Name is required</mat-error>
-      <mat-icon matSuffix>home</mat-icon>
-    </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Vor- und Nachname</mat-label>
+          <input matInput maxlength="15" formControlName="name">
+          <mat-error>Bitte gebe einen Namen an</mat-error>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
 
-    <mat-form-field appearance="standard">
-      <mat-label>Telefonnummer</mat-label>
-      <input type="tel" matInput maxlength="15" formControlName="tel">
-      <mat-error>Name is required</mat-error>
-      <mat-icon matSuffix>phone</mat-icon>
-    </mat-form-field>
 
-    <div>
-      <mat-form-field class="half" appearance="standard">
-        <mat-label>PLZ</mat-label>
-        <input matInput maxlength="15" formControlName="plz">
-        <mat-error>Name is required</mat-error>
-      </mat-form-field>
 
-      <mat-form-field class="half" appearance="standard">
-        <mat-label>Ort</mat-label>
-        <input matInput maxlength="15" formControlName="ort">
-        <mat-error>Name is required</mat-error>
-        <mat-icon matSuffix>location_city</mat-icon>
-      </mat-form-field>
-    </div>
+        <div>
+          <mat-form-field class="half" appearance="standard">
+            <mat-label>Straße </mat-label>
+            <input matInput maxlength="15" formControlName="strNr">
+            <mat-error>Name is required</mat-error>
+            <mat-icon matSuffix>home</mat-icon>
+          </mat-form-field>
 
-    <mat-form-field appearance="standard">
-      <mat-label>E-Mail</mat-label>
-      <input matInput maxlength="15" formControlName="email">
-      <mat-error>Name is required</mat-error>
-      <mat-icon matSuffix>email</mat-icon>
-    </mat-form-field>
+          <mat-form-field class="half" appearance="standard">
+            <mat-label>Hausnummer</mat-label>
+            <input matInput type="number" maxlength="15" formControlName="nr">
+            <mat-error>Name is required</mat-error>
+          </mat-form-field>
+        </div>
 
-    <mat-form-field appearance="standard">
-      <mat-label>Raummeter</mat-label>
-      <input type="number" matInput maxlength="15" formControlName="raummeter">
-      <mat-error>Name is required</mat-error>
-    </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Telefonnummer</mat-label>
+          <input type="tel" matInput maxlength="15" formControlName="tel">
+          <mat-error>Name is required</mat-error>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
 
-    <label id="radio-group-label">Gewünschte Scheitholzlänge:</label>
-    <mat-radio-group aria-label="Select an option">
-      <mat-radio-button value="25cm" active>25cm</mat-radio-button>
-      <mat-radio-button value="33cm">33cm</mat-radio-button>
-      <mat-radio-button value="50cm">50cm</mat-radio-button>
-    </mat-radio-group>
+        <div>
+          <mat-form-field class="half" appearance="standard">
+            <mat-label>PLZ</mat-label>
+            <input matInput maxlength="15" formControlName="plz">
+            <mat-error>Name is required</mat-error>
+          </mat-form-field>
 
-    <mat-form-field class="datum">
-      <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+          <mat-form-field class="half" appearance="standard">
+            <mat-label>Ort</mat-label>
+            <input matInput maxlength="15" formControlName="ort">
+            <mat-error>Name is required</mat-error>
+            <mat-icon matSuffix>location_city</mat-icon>
+          </mat-form-field>
+        </div>
 
-    <button mat-raised-button color="primary">Absenden</button>
+        <mat-form-field appearance="standard">
+          <mat-label>E-Mail</mat-label>
+          <input matInput type="email" formControlName="email" email="true">
+          <mat-error>Bitte gebe eine gültige E-Mail an</mat-error>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
 
-  </form>
+
+        <div class="personendateButton">
+          <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
+          <button mat-raised-button matStepperNext color="accent">Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Abschluss</ng-template>
+      <p><b>Brennholzbestellung:</b></p>
+      <p>Holzart: {{brennholzbestellung.controls["holzart"].value }}</p>
+      <p>Scheitholzlänge: {{brennholzbestellung.controls["scheitlaenge"].value }}</p>
+      <p>Raummeter: {{brennholzbestellung.controls["raummeter"].value }}</p>
+      <p>Gewünschtes Lieferdatum: {{brennholzbestellung.controls["date"].value }}</p>
+
+      <p><b>Personendaten:</b></p>
+      <p>Vor- und Nachname: {{personendaten.controls["name"].value }}</p>
+      <p>Straße und Hausnummer: {{personendaten.controls["str"].value }} {{personendaten.controls["nr"].value }}</p>
+      <p>Telefonnummer: {{personendaten.controls["tel"].value }}</p>
+      <p>PLZ und Ort: {{personendaten.controls["plz"].value }} {{personendaten.controls["ort"].value }}</p>
+      <p>E-Mail: {{personendaten.controls["email"].value }}</p>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
 </div>
