@@ -26,8 +26,12 @@
       margin-bottom: 2vh;
     }
 
+    .twoItems{
+      display: flex;
+      justify-content: space-between;
+    }
     .half{
-      width: 25vw;
+      width: 22vw;
     }
 
     mat-form-field {

@@ -21,3 +21,7 @@ export class LayoutComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }
+
+// Schrift ähnlich Blickle
+// Logo schwarz
+// Hintergrundbild

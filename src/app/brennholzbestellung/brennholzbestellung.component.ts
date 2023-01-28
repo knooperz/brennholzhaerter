@@ -21,7 +21,7 @@ export class BrennholzbestellungComponent implements OnInit {
     holzart:[null],
     scheitlaenge:[null],
     raummeter: [null, [Validators.required]],
-    date: [null, [Validators.required]]
+    date: [null]
   });
 
   personendaten = this.fb.group({
