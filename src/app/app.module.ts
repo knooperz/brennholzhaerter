@@ -8,9 +8,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { BrennholzbestellungComponent } from './brennholzbestellung/brennholzbestellung.component';
 import { StartseiteComponent } from './startseite/startseite.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProduktComponent } from './produkt/produkt.component';
+import { DienstleistungenComponent } from './dienstleistungen/dienstleistungen.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProduktComponent } from './produkt/produkt.component';
     StartseiteComponent,
     AboutUsComponent,
     ProduktComponent,
+    DienstleistungenComponent,
   ],
   imports: [
     BrowserModule,

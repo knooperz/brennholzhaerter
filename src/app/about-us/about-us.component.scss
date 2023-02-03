@@ -3,12 +3,35 @@
   display: flex;
   justify-content: space-around;
   margin: 1em;
-
+  h1{
+    align-self: center;
+    font-weight: bold;
+  }
   .textDiv{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin-left: 1em;
   }
 }
+
+@media screen and (max-width: 500px){
+  .first
+  {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin: 1em;
+    h1{
+      align-self: center;
+      font-weight: bold;
+    }
+    .textDiv{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 1em;
+    }
+  }
+}
+

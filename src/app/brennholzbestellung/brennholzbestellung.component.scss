@@ -1,14 +1,15 @@
+$mobile: 500px;
+
 .container {
   display: flex;
   margin-top: 2vh;
   flex-direction: column;
   align-items: center;
 
-  table {
-    width: 40%;
-    height: 50%;
-    margin-bottom: 2em;
+  .stepper{
+    width: 80%;
   }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -30,12 +31,9 @@
       display: flex;
       justify-content: space-between;
     }
-    .half{
-      width: 22vw;
-    }
 
     mat-form-field {
-      width: 50vw;
+      width: 50%;
     }
 
     .datum{
@@ -55,5 +53,16 @@
 
   button{
     margin-top: 2vh;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  mat-form-field {
+    width: 100% !important;
+  }
+
+  .stepper{
+    width: 100% !important;
   }
 }

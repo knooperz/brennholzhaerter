@@ -1,6 +1,9 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperOrientation } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatRadioButton } from '@angular/material/radio';
+import { map, Observable } from 'rxjs';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -10,52 +13,38 @@ import { HttpService } from '../http.service';
 })
 export class BrennholzbestellungComponent implements OnInit {
 
-  displayedColumns: string[] = ['holzart', 'zustand', 'laenge', 'preis', 'verfuegbarkeit'];
-  preise: Preis[] = [
-    {holzart: "Buche", zustand: "frisch", laenge: "25cm, 33cm, 50cm", preis: 140, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Buche", zustand: "trocken", laenge: "25cm, 33cm, 50cm", preis: 150, verfuegbarkeit: "ausverkauft"},
-    {holzart: "Fichte", zustand: "trocken", laenge: "25cm, 33cm, 50cm", preis: 110, verfuegbarkeit: "ausverkauft"}
-  ];
+  stepperOrientation?: Observable<StepperOrientation>;
 
   brennholzbestellung = this.fb.group({
-    holzart:[null],
-    scheitlaenge:[null],
+    holzart:[null, [Validators.required]],
+    scheitlaenge:[null, [Validators.required]],
     raummeter: [null, [Validators.required]],
     date: [null]
   });
 
   personendaten = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(5)]],
-      str: [null, [Validators.required, Validators.minLength(5)]],
-      nr: [null, [Validators.required],],
+      name: [null, [Validators.required]],
+      str: [null, [Validators.required]],
+      nr: [null, [Validators.required]],
       tel: [null, [Validators.required, Validators.minLength(5)]],
-      plz: [null, [Validators.required, Validators.minLength(5)]],
-      ort: [null, [Validators.required, Validators.minLength(5)]],
+      plz: [null, [Validators.required, Validators.minLength(4)]],
+      ort: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.minLength(5)]],
   });
 
 
-  constructor(private fb: FormBuilder, private httpService: HttpService) { }
+  constructor(private fb: FormBuilder, private httpService: HttpService, private breakpointObserver: BreakpointObserver) {
+
+  }
 
   ngOnInit(): void {
-
+    this.stepperOrientation = this.breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
 
   sendBestellung(){
     console.log("send")
-    // let bestellung: Bestellung = {
-    //   name: this.brennholzbestellung.controls["name"].value,
-    //   strNr: this.brennholzbestellung.controls["strNr"].value,
-    //   tel: this.brennholzbestellung.controls["tel"].value,
-    //   plz: this.brennholzbestellung.controls["plz"].value,
-    //   ort: this.brennholzbestellung.controls["ort"].value,
-    //   email: this.brennholzbestellung.controls["email"].value,
-    //   raummeter: this.brennholzbestellung.controls["raummeter"].value,
-    //   date: this.brennholzbestellung.controls["date"].value
-    // }
-    // this.httpService.sendBestellung(bestellung).subscribe(data=>{
-    //   console.log(data);
-    // });
   }
 }
 

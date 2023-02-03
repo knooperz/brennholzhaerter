@@ -1,20 +1,20 @@
 <div class="container">
 
-  <mat-stepper [linear]="false" #stepper>
+  <mat-stepper class="stepper" [linear]="true" #stepper [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="brennholzbestellung" label="Brennholzbestellung">
 
       <form [formGroup]="brennholzbestellung" class="form">
 
         <label id="groupLabel">Gewünschte Holzart:</label>
         <mat-radio-group aria-label="Select an option" formControlName="holzart">
-          <mat-radio-button value="25cm" active>Buche, trocken (160€)</mat-radio-button>
+          <mat-radio-button value="25cm" >Buche, trocken (160€)</mat-radio-button>
           <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button>
           <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
         </mat-radio-group>
 
         <label id="groupLabel">Gewünschte Scheitholzlänge:</label>
         <mat-radio-group aria-label="Select an option" formControlName="scheitlaenge">
-          <mat-radio-button value="25cm" active>25cm</mat-radio-button>
+          <mat-radio-button value="25cm">25cm</mat-radio-button>
           <mat-radio-button value="33cm">33cm</mat-radio-button>
           <mat-radio-button value="50cm">50cm</mat-radio-button>
         </mat-radio-group>

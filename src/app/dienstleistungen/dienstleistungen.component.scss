@@ -1,0 +1,19 @@
+.leistungen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &-item {
+    width: 400px;
+    margin: 10px;
+  }
+
+  &-card{
+
+  }
+}
+
+.img {
+  height: 100%;
+}
+

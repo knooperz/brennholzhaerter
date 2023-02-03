@@ -1,19 +1,12 @@
- .leistungen {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+#bigImg {
+  height: 100%;
+}
 
-    &-item {
-      width: 400px;
-      margin: 10px;
-    }
+.image {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 1vh;
+  height: 75vh;
+}
 
-    &-card{
-      
-    }
-  }
-
-  .img {
-    height: 100%;
-  }
 

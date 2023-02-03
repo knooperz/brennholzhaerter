@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .sidenav-container {
-  height: 90%;
+  height: 100%;
 }
 
 .sidenav {
@@ -29,6 +29,9 @@
   justify-self: flex-start;
   margin-left: 11vw;
   margin-bottom: 2vh;
+}
+.logoMobile{
+  width: 80%;
 }
 
 .toolbar {

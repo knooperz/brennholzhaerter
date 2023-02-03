@@ -5,25 +5,29 @@
   .images {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
-    width: 50%;
+    width: 130%;
 
     .greatImg {
       margin-top: 5em;
-      width: 810px;
+      width: 90%;
     }
+
     .smallImages {
       display: flex;
-      margin: 1em;
-      width: 810px;
+      margin-top: 1em;
+    }
+
+    .imageFor{
+      margin-right: 0.5em;
     }
 
     .smallImg {
-      width: 150px;
-      margin: 3px;
+      width: 8vw;
       &:hover{
         opacity: 0.5;
+        width: 9vw;
       }
     }
   }
@@ -38,8 +42,60 @@
     margin: 5%;
     button{
       height: 10vh;
-      width: 20vw;
-      font-size: xx-large;
+      width: 30vw;
+      font-size: 2vw;
+    }
+  }
+}
+
+@media screen and (max-width: 500px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0em;
+
+    .images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+
+      .greatImg {
+        width: 100%;
+      }
+
+      .smallImages {
+        display: flex;
+        margin-top: 1em;
+      }
+
+      .imageFor{
+        margin-right: 0.5em;
+      }
+
+      .smallImg {
+        width: 25vw;
+        &:hover{
+          opacity: 0.5;
+          width: 26vw;
+        }
+      }
+    }
+
+    .text{
+      margin-top: 5em;
+    }
+
+    .button{
+      display: flex;
+      justify-content: center;
+      margin: 5%;
+      button{
+        height: 10vh;
+        width: 90vw;
+        font-size: 5vw;
+      }
     }
   }
 }
