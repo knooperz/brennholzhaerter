@@ -114,8 +114,9 @@
       <p>E-Mail: {{personendaten.controls["email"].value }}</p>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
+        <button mat-button (click)="stepper.reset()" color="error">Reset</button>
+        <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellen</button>
       </div>
     </mat-step>
   </mat-stepper>

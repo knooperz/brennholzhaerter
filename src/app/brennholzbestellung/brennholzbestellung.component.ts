@@ -1,8 +1,8 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatRadioButton } from '@angular/material/radio';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { map, Observable } from 'rxjs';
 import { HttpService } from '../http.service';
 
@@ -33,9 +33,10 @@ export class BrennholzbestellungComponent implements OnInit {
   });
 
 
-  constructor(private fb: FormBuilder, private httpService: HttpService, private breakpointObserver: BreakpointObserver) {
-
-  }
+  constructor(private fb: FormBuilder,
+    private httpService: HttpService,
+    private breakpointObserver: BreakpointObserver,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.stepperOrientation = this.breakpointObserver
@@ -44,19 +45,52 @@ export class BrennholzbestellungComponent implements OnInit {
   }
 
   sendBestellung(){
-    console.log("send")
+    let bestellung: Bestellung = {
+      name: this.personendaten.controls["name"].value,
+      str: this.personendaten.controls["str"].value,
+      nr: this.personendaten.controls["nr"].value,
+      tel: this.personendaten.controls["tel"].value,
+      plz: this.personendaten.controls["plz"].value,
+      ort: this.personendaten.controls["ort"].value,
+      email: this.personendaten.controls["email"].value,
+      scheitlaenge: this.brennholzbestellung.controls["scheitlaenge"].value,
+      raummeter: this.brennholzbestellung.controls["raummeter"].value,
+      date: this.brennholzbestellung.controls["date"].value
+    }
+    this.httpService.sendBestellung(bestellung).subscribe(data=>{
+      if(data.text == "Erfolg"){
+        this.dialog.open(BestellungErfolgreichDialog, {
+          width: '250px'
+        });
+      }
+    });
   }
 }
 
+@Component({
+  selector: 'bestellungErfolgreichDialog',
+  templateUrl: 'bestellungErfolgreichDialog.html',
+})
+export class BestellungErfolgreichDialog {
+  constructor(public dialogRef: MatDialogRef<BestellungErfolgreichDialog>) {}
+}
+
 export interface Bestellung{
-  name: string;
-  strNr: string;
-  tel: string;
-  plz: string;
-  ort: string
-  email: string;
-  raummeter: string;
-  date: Date;
+  name: string | null;
+  str: string| null;
+  nr: string| null;
+  tel: string| null;
+  plz: string| null;
+  ort: string| null;
+  email: string| null;
+  raummeter: string| null;
+  scheitlaenge: string| null;
+  date: Date | null;
+}
+
+export interface BestellungResponse{
+  text: string;
+  error: string;
 }
 
 interface Preis{

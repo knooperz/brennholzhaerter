@@ -9,11 +9,11 @@
         <img class="smallImg" [src]="image" (click)="changeImage(image)">
       </div>
     </div>
-
+    
   </div>
 
-  <div>
-    <div class="text" [innerHTML]="textHtml"></div>
+  <div class="text">
+    <div class="textContent" [innerHTML]="textHtml"></div>
     <div class="button">
       <button *ngIf="brennholz" mat-raised-button color="primary" (click)="brennholzClick()">Brennholzbestellung</button>
     </div>

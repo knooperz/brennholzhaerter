@@ -10,7 +10,7 @@ export class DienstleistungenComponent implements OnInit {
   leistungen: Leistung[] = [
     {
       title: 'Brennholz',
-      img: '../../assets/images/brennholz.jpg',
+      img: '../../assets/images/brennholz/brennholz.jpg',
       text: '',
       queryParam: { product: 'brennholz' }
     },
@@ -22,7 +22,7 @@ export class DienstleistungenComponent implements OnInit {
     },
     {
       title: 'Lohnspalten',
-      img: '../../assets/images/laster.jpg',
+      img: '../../assets/images/brennholz/IMG_20220610_171644_527.jpg',
       text: '',
       queryParam: { product: 'holztransport' }
     },

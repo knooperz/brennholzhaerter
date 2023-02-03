@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Bestellung } from './brennholzbestellung/brennholzbestellung.component';
+import { Bestellung, BestellungResponse } from './brennholzbestellung/brennholzbestellung.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class HttpService {
       inhalt: `Name: ${bestellung.name}\nTelefon: ${bestellung.tel}\nPLZ und Ort: ${bestellung.plz} ${bestellung.ort}\nEmail: ${bestellung.email}\nRaummeter: ${bestellung.raummeter}\nDatum: ${bestellung.date}`
     }
 
-    return this.httpClient.post<string>(this.url+"/sendMail", mail);
+    return this.httpClient.post<BestellungResponse>(this.url+"/sendMail", mail);
   }
 
 }

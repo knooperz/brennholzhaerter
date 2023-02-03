@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 130%;
+    width: 50%;
 
     .greatImg {
       margin-top: 5em;
@@ -32,8 +32,11 @@
     }
   }
 
-  .text{
+  .textContent{
     margin-top: 5em;
+  }
+  .text{
+    width: 50%;
   }
 
   .button{
@@ -51,7 +54,7 @@
 @media screen and (max-width: 500px){
   .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin: 0em;
 
     .images {
@@ -83,8 +86,10 @@
       }
     }
 
-    .text{
+    .textContent{
       margin-top: 5em;
+      margin-left: 1em;
+      margin-right: 1em;
     }
 
     .button{
