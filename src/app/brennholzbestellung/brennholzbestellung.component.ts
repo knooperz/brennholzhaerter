@@ -57,6 +57,7 @@ export class BrennholzbestellungComponent implements OnInit {
       raummeter: this.brennholzbestellung.controls["raummeter"].value,
       date: this.brennholzbestellung.controls["date"].value
     }
+    console.log(bestellung)
     this.httpService.sendBestellung(bestellung).subscribe(data=>{
       if(data.text == "Erfolg"){
         this.dialog.open(BestellungErfolgreichDialog, {

@@ -54,6 +54,12 @@ export class ProduktComponent implements OnInit {
       this.greatImag = this.images[0];
       this.textHtml = "<h1>Brennholz</h1><p>Wir bieten Ihnen ofenfertiges Buchenbrennholz mit einer Restfeuchtigkeit unter 25% in gleich bleibender Qualität, sowie gespaltenes Frischholz. Unser Brennholz stammt komplett aus heimischen Wäldern. Wir bieten gespaltenes Brennholz in verschiedenen Längen an: 25 cm, 33 cm und 50 cm. Diese Standardlängen eignen sich ideal für alle gewöhnlichen Kaminöfen, Kachelöfen oder Holzheizungen.</p><p>Wer sein Brennholz selbst aufbereiten möchte, kann bei uns auch frisches Langholz bestellen. Das Holz in einer Länge von 6 Meter wird auf einem Kran-LKW direkt aus dem Wald zu Ihnen geliefert.</p>";
     }
+    else if (product == "bandsaege") {
+      this.brennholz = true;
+      this.images = ["../../assets/images/brennholz/IMG_20220610_171644_527.jpg", "../../assets/images/brennholz/brennholz.jpg", "../../assets/images/brennholz/IMG_20220610_171644_629.jpg"];
+      this.greatImag = this.images[0];
+      this.textHtml = "<h1>LT70 Bandsäge</h1><p>Wir bieten Ihnen ofenfertiges Buchenbrennholz mit einer Restfeuchtigkeit unter 25% in gleich bleibender Qualität, sowie gespaltenes Frischholz. Unser Brennholz stammt komplett aus heimischen Wäldern. Wir bieten gespaltenes Brennholz in verschiedenen Längen an: 25 cm, 33 cm und 50 cm. Diese Standardlängen eignen sich ideal für alle gewöhnlichen Kaminöfen, Kachelöfen oder Holzheizungen.</p><p>Wer sein Brennholz selbst aufbereiten möchte, kann bei uns auch frisches Langholz bestellen. Das Holz in einer Länge von 6 Meter wird auf einem Kran-LKW direkt aus dem Wald zu Ihnen geliefert.</p>";
+    }
   }
 
   brennholzClick(){

@@ -37,6 +37,12 @@ export class DienstleistungenComponent implements OnInit {
       img: '../../assets/images/laster.jpg',
       text: '',
       queryParam: { product: 'winterdienst' }
+    },
+    {
+      title: 'LT70 Bandsäge',
+      img: '../../assets/images/laster.jpg',
+      text: '',
+      queryParam: { product: 'bandsaege' }
     }];
 
     text: string = "";
