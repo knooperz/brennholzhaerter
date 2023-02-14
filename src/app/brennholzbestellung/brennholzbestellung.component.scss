@@ -66,3 +66,17 @@ $mobile: 500px;
     width: 100% !important;
   }
 }
+
+$nav-bt-margin: 2%;
+$nav-bt-height: 5vh;
+$nav-bt-width: 10vw;
+$bt-br: 0px;
+$nav-bt-br: $bt-br;
+
+.button{
+  margin: $nav-bt-margin;
+  height: $nav-bt-height;
+  width: $nav-bt-width;
+  border-radius: $nav-bt-br !important;
+
+}

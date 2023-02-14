@@ -108,3 +108,15 @@
     }
   }
 }
+
+$nav-bt-height: 5vh;
+$nav-bt-width: 60vw;
+$bt-br: 0px;
+$nav-bt-br: $bt-br;
+
+.button{
+  height: 10vh;
+  width: 30vw;
+  font-size: 2vw;
+  border-radius: $nav-bt-br !important;
+}

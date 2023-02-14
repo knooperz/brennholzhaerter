@@ -1,10 +1,11 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/cdk/stepper';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { map, Observable } from 'rxjs';
 import { HttpService } from '../http.service';
+import { PulseButtonComponent } from '../pulse-button/pulse-button.component';
 
 @Component({
   selector: 'app-brennholzbestellung',
@@ -13,23 +14,26 @@ import { HttpService } from '../http.service';
 })
 export class BrennholzbestellungComponent implements OnInit {
 
+  @ViewChild('pulseButtonComponent')
+  private pulseBTC!: PulseButtonComponent;
+
   stepperOrientation?: Observable<StepperOrientation>;
 
   brennholzbestellung = this.fb.group({
-    holzart:[null, [Validators.required]],
-    scheitlaenge:[null, [Validators.required]],
+    holzart: [null, [Validators.required]],
+    scheitlaenge: [null, [Validators.required]],
     raummeter: [null, [Validators.required]],
     date: [null]
   });
 
   personendaten = this.fb.group({
-      name: [null, [Validators.required]],
-      str: [null, [Validators.required]],
-      nr: [null, [Validators.required]],
-      tel: [null, [Validators.required, Validators.minLength(5)]],
-      plz: [null, [Validators.required, Validators.minLength(4)]],
-      ort: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.minLength(5)]],
+    name: [null, [Validators.required]],
+    str: [null, [Validators.required]],
+    nr: [null, [Validators.required]],
+    tel: [null, [Validators.required, Validators.minLength(5)]],
+    plz: [null, [Validators.required, Validators.minLength(4)]],
+    ort: [null, [Validators.required]],
+    email: [null, [Validators.required, Validators.minLength(5)]],
   });
 
 
@@ -39,12 +43,18 @@ export class BrennholzbestellungComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      if (this.pulseBTC !== undefined) {
+        this.pulseBTC.ChangePulse(true)
+      }
+    }
+      , 1000)
     this.stepperOrientation = this.breakpointObserver
       .observe('(min-width: 800px)')
-      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
 
-  sendBestellung(){
+  sendBestellung() {
     let bestellung: Bestellung = {
       name: this.personendaten.controls["name"].value,
       str: this.personendaten.controls["str"].value,
@@ -58,8 +68,8 @@ export class BrennholzbestellungComponent implements OnInit {
       date: this.brennholzbestellung.controls["date"].value
     }
     console.log(bestellung)
-    this.httpService.sendBestellung(bestellung).subscribe(data=>{
-      if(data.text == "Erfolg"){
+    this.httpService.sendBestellung(bestellung).subscribe(data => {
+      if (data.text == "Erfolg") {
         this.dialog.open(BestellungErfolgreichDialog, {
           width: '250px'
         });
@@ -73,28 +83,28 @@ export class BrennholzbestellungComponent implements OnInit {
   templateUrl: 'bestellungErfolgreichDialog.html',
 })
 export class BestellungErfolgreichDialog {
-  constructor(public dialogRef: MatDialogRef<BestellungErfolgreichDialog>) {}
+  constructor(public dialogRef: MatDialogRef<BestellungErfolgreichDialog>) { }
 }
 
-export interface Bestellung{
+export interface Bestellung {
   name: string | null;
-  str: string| null;
-  nr: string| null;
-  tel: string| null;
-  plz: string| null;
-  ort: string| null;
-  email: string| null;
-  raummeter: string| null;
-  scheitlaenge: string| null;
+  str: string | null;
+  nr: string | null;
+  tel: string | null;
+  plz: string | null;
+  ort: string | null;
+  email: string | null;
+  raummeter: string | null;
+  scheitlaenge: string | null;
   date: Date | null;
 }
 
-export interface BestellungResponse{
+export interface BestellungResponse {
   text: string;
   error: string;
 }
 
-interface Preis{
+interface Preis {
   holzart: string;
   zustand: string;
   laenge: string;

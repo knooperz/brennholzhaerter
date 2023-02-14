@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PulseButtonComponent } from '../pulse-button/pulse-button.component';
 
 @Component({
   selector: 'app-produkt',
@@ -7,6 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./produkt.component.scss']
 })
 export class ProduktComponent implements OnInit {
+
+  @ViewChild('pulseButtonComponent')
+  private pulseBTC!: PulseButtonComponent;
 
   greatImag: string = "";
   images: string[] = []
@@ -16,7 +20,12 @@ export class ProduktComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
+    setInterval(() => {
+      if (this.pulseBTC !== undefined) {
+        this.pulseBTC.ChangePulse(true)
+      }
+    }
+      , 1000)
     this.route.queryParams.subscribe(params => {
       this.getProduct(params['product']);
     })
