@@ -11,20 +11,32 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  sendBestellung(bestellung: Bestellung){
+  sendBestellung(bestellung: Bestellung) {
 
     let mail: SendObject = {
       empfaenger: "john99.herter@gmail.com",
       betreff: "Neue Brennholzbestellung von " + bestellung.name,
-      inhalt: `Name: ${bestellung.name}\nTelefon: ${bestellung.tel}\nPLZ und Ort: ${bestellung.plz} ${bestellung.ort}\nEmail: ${bestellung.email}\nRaummeter: ${bestellung.raummeter}\nDatum: ${bestellung.date}`
+      sender: bestellung.email ?? "fehlerhafteMail@test.de",
+      inhalt: `<b>Neu Brennholzbestellung von:</b><br>
+      ${bestellung.name} <br>
+      ${bestellung.str} ${bestellung.nr} <br>
+      ${bestellung.plz} ${bestellung.ort} <br>
+      ${bestellung.email} <br>
+      ${bestellung.tel} <br>
+      <br>
+      <b>Bestellung:</b><br>
+      ${bestellung.raummeter} ${bestellung.holzart}<br>
+      ${bestellung.scheitlaenge} <br>
+      ${bestellung.date} <br>`
     }
 
-    return this.httpClient.post<BestellungResponse>(this.url+"/sendMail", mail);
+    return this.httpClient.post<BestellungResponse>(this.url + "/sendMail", mail);
   }
 
 }
-interface SendObject{
+interface SendObject {
   empfaenger: string;
+  sender: string;
   betreff: string;
   inhalt: string;
 }

@@ -54,6 +54,7 @@ export class BrennholzbestellungComponent implements OnInit {
       ort: this.personendaten.controls["ort"].value,
       email: this.personendaten.controls["email"].value,
       scheitlaenge: this.brennholzbestellung.controls["scheitlaenge"].value,
+      holzart: this.brennholzbestellung.controls["holzart"].value,
       raummeter: this.brennholzbestellung.controls["raummeter"].value,
       date: this.brennholzbestellung.controls["date"].value
     }
@@ -85,6 +86,7 @@ export interface Bestellung{
   email: string| null;
   raummeter: string| null;
   scheitlaenge: string| null;
+  holzart: string| null;
   date: Date | null;
 }
 
