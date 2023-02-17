@@ -86,8 +86,12 @@
       }
     }
 
+    .text{
+      width: 100%;
+    }
+
     .textContent{
-      margin-top: 5em;
+      margin-top: 1em!important;
       margin-left: 1em;
       margin-right: 1em;
     }
@@ -103,4 +107,16 @@
       }
     }
   }
+}
+
+$nav-bt-height: 5vh;
+$nav-bt-width: 60vw;
+$bt-br: 0px;
+$nav-bt-br: $bt-br;
+
+.button{
+  height: 10vh;
+  width: 30vw;
+  font-size: 2vw;
+  border-radius: $nav-bt-br !important;
 }

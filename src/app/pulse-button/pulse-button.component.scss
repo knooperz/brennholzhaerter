@@ -1,0 +1,68 @@
+$weiss: rgb(255,255,255);
+$blickle-gruen: #97c511;
+$bt-br: 0px;
+
+/* Basic button styling */
+$font-color: $weiss;
+$background-color: $blickle-gruen;
+$box-shadow-color: rgba($blickle-gruen, 0.7);
+$pulsing-duration: 1.25s;
+
+
+.pulsingButton {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 0 0 0 $box-shadow-color;
+    border-radius: $bt-br;
+    background-color: $background-color;
+    -webkit-animation: 'none';
+    -moz-animation: 'none';
+    -ms-animation: 'none';
+    animation: 'none';
+    text-decoration: none !important;
+    color: $font-color;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+  }
+  
+  
+  /* Comment-out to have the button continue to pulse on mouseover */
+  
+  a.pulsingButton:hover {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    animation: none;
+    color: #ffffff;
+  }
+  
+  
+  /* Animation */
+  
+  @-webkit-keyframes pulsing {
+    to {
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+  }
+  
+  @-moz-keyframes pulsing {
+    to {
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+  }
+  
+  @-ms-keyframes pulsing {
+    to {
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+  }
+  
+  @keyframes pulsing {
+    to {
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+  }

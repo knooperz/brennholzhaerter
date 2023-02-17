@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProduktComponent } from './produkt/produkt.component';
 import { DienstleistungenComponent } from './dienstleistungen/dienstleistungen.component';
+import { PulseButtonComponent } from './pulse-button/pulse-button.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DienstleistungenComponent } from './dienstleistungen/dienstleistungen.c
     StartseiteComponent,
     AboutUsComponent,
     ProduktComponent,
+    PulseButtonComponent,
     DienstleistungenComponent,
   ],
   imports: [

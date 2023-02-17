@@ -15,7 +15,15 @@
   <div class="text">
     <div class="textContent" [innerHTML]="textHtml"></div>
     <div class="button">
-      <button *ngIf="brennholz" mat-raised-button color="primary" (click)="brennholzClick()">Brennholzbestellung</button>
+              <app-pulse-button
+        #pulseButtonComponent 
+        (click)="brennholzClick()"
+        [buttonText]="'Brennholzbestellung'" 
+        [buttonIcon]="'sports_score'"
+        class="button"
+        *ngIf="true">
+    
+        </app-pulse-button>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <mat-stepper class="stepper" [linear]="true" #stepper [orientation]="(stepperOrientation | async)!">
+  <mat-stepper class="stepper" [linear]="false" #stepper [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="brennholzbestellung" label="Brennholzbestellung">
 
       <form [formGroup]="brennholzbestellung" class="form">
@@ -117,6 +117,15 @@
         <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
         <button mat-button (click)="stepper.reset()" color="error">Reset</button>
         <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellen</button>
+        <app-pulse-button
+        #pulseButtonComponent 
+        (click)="sendBestellung()"
+        [buttonText]="'Abschluss'" 
+        [buttonIcon]="'sports_score'"
+        class="button"
+        *ngIf="true">
+    
+        </app-pulse-button>
       </div>
     </mat-step>
   </mat-stepper>
