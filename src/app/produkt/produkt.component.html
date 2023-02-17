@@ -9,20 +9,19 @@
         <img class="smallImg" [src]="image" (click)="changeImage(image)">
       </div>
     </div>
-    
+
   </div>
 
   <div class="text">
     <div class="textContent" [innerHTML]="textHtml"></div>
     <div class="button">
               <app-pulse-button
-        #pulseButtonComponent 
+        #pulseButtonComponent
         (click)="brennholzClick()"
-        [buttonText]="'Brennholzbestellung'" 
-        [buttonIcon]="'sports_score'"
+        [buttonText]="'Brennholzbestellung'"
         class="button"
         *ngIf="true">
-    
+
         </app-pulse-button>
     </div>
   </div>

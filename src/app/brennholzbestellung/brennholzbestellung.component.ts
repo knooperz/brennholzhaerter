@@ -114,8 +114,3 @@ interface Preis {
   verfuegbarkeit: string;
 }
 
-/*TODO
-Berstellung 2 Formulare: Produktinfos (Holzart, Länge, raummmeter, Holzustand), Adresse => Rest
-Brennholz als Produkt mit Link zu Betstellformular
-Produkte => Dienstleistungen
-*/
