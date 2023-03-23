@@ -11,7 +11,8 @@
 
     .greatImg {
       margin-top: 5em;
-      width: 90%;
+
+      height: 70vh;
     }
 
     .smallImages {
@@ -63,6 +64,7 @@
       align-items: center;
       justify-content: flex-start;
       width: 100%;
+      height: 10vh;
 
       .greatImg {
         width: 100%;

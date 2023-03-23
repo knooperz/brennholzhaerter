@@ -4,14 +4,15 @@
   justify-content: space-around;
   margin: 1em;
   h1{
-    align-self: center;
     font-weight: bold;
   }
   .textDiv{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-left: 1em;
+    margin-top: 5em;
+
+
   }
 }
 

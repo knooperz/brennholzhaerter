@@ -2,42 +2,44 @@
 
   <mat-stepper class="stepper" [linear]="false" #stepper [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="brennholzbestellung" label="Brennholzbestellung">
+      <div class="step">
+        <form [formGroup]="brennholzbestellung" class="form">
 
-      <form [formGroup]="brennholzbestellung" class="form">
+          <label id="groupLabel">Gewünschte Holzart:</label>
+          <mat-radio-group aria-label="Select an option" formControlName="holzart">
+            <mat-radio-button value="25cm">Buche, trocken (160€)</mat-radio-button>
+            <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button>
+            <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
+          </mat-radio-group>
 
-        <label id="groupLabel">Gewünschte Holzart:</label>
-        <mat-radio-group aria-label="Select an option" formControlName="holzart">
-          <mat-radio-button value="25cm" >Buche, trocken (160€)</mat-radio-button>
-          <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button>
-          <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
-        </mat-radio-group>
+          <label id="groupLabel">Gewünschte Scheitholzlänge:</label>
+          <mat-radio-group aria-label="Select an option" formControlName="scheitlaenge">
+            <mat-radio-button value="25cm">25cm</mat-radio-button>
+            <mat-radio-button value="33cm">33cm</mat-radio-button>
+            <mat-radio-button value="50cm">50cm</mat-radio-button>
+          </mat-radio-group>
 
-        <label id="groupLabel">Gewünschte Scheitholzlänge:</label>
-        <mat-radio-group aria-label="Select an option" formControlName="scheitlaenge">
-          <mat-radio-button value="25cm">25cm</mat-radio-button>
-          <mat-radio-button value="33cm">33cm</mat-radio-button>
-          <mat-radio-button value="50cm">50cm</mat-radio-button>
-        </mat-radio-group>
+          <mat-form-field appearance="standard">
+            <mat-label>Raummeter</mat-label>
+            <input type="number" matInput maxlength="15" formControlName="raummeter">
+            <mat-error>Name is required</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="standard">
-          <mat-label>Raummeter</mat-label>
-          <input type="number" matInput maxlength="15" formControlName="raummeter">
-          <mat-error>Name is required</mat-error>
-        </mat-form-field>
+          <mat-form-field class="datum">
+            <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
 
-        <mat-form-field class="datum">
-          <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="date">
-          <mat-hint>DD/MM/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperNext color="accent">Weiter</button>
+          </div>
 
-        <div>
-          <button mat-raised-button matStepperNext color="accent">Weiter</button>
-        </div>
-
-      </form>
+        </form>
+        <img class="image" src="../../assets/images/umrechnen.png" alt="" srcset="">
+      </div>
     </mat-step>
     <mat-step [stepControl]="personendaten" label="Personendaten">
       <form [formGroup]="personendaten" class="form">
@@ -117,14 +119,9 @@
         <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
         <button mat-button (click)="stepper.reset()" color="error">Reset</button>
         <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellen</button>
-        <app-pulse-button
-        #pulseButtonComponent 
-        (click)="sendBestellung()"
-        [buttonText]="'Abschluss'" 
-        [buttonIcon]="'sports_score'"
-        class="button"
-        *ngIf="true">
-    
+        <app-pulse-button #pulseButtonComponent (click)="sendBestellung()" [buttonText]="'Abschluss'"
+          [buttonIcon]="'sports_score'" class="button" *ngIf="true">
+
         </app-pulse-button>
       </div>
     </mat-step>

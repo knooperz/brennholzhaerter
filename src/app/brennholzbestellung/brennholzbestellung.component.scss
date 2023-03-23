@@ -1,5 +1,14 @@
 $mobile: 500px;
 
+.step{
+  display: flex;
+  justify-content: space-between;
+
+  .image{
+    height: 40vh;
+  }
+}
+
 .container {
   display: flex;
   margin-top: 2vh;
