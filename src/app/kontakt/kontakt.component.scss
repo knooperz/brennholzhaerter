@@ -1,9 +1,11 @@
+@import "../../styles/variables";
+
 .site
 {
   display: flex;
   flex-direction: column;
   font-size: 2vw;
-  margin: 5%;
+  margin: 2%;
 
   .logo{
     width: 20vw;
@@ -14,11 +16,23 @@
     display: flex;
     flex-direction: column;
     font-size: 1vw;
+    margin-bottom: 3%;
+
+    .fett{
+      font-weight: bold;
+    }
 
     #tel{
       margin-top: 1%;
     }
 
+    .telmail{
+      color: $primary-color;
+    }
+
+    mat-icon{
+      margin-right: 0.5%;
+    }
     .links{
 
       display: flex;
@@ -58,4 +72,13 @@
 
 
 }
+
+@media screen and (max-width: 500px){
+  .logo{
+    width: 100%;
+
+    margin-bottom: 5%;
+  }
+}
+
 

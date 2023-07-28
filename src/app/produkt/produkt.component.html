@@ -14,7 +14,7 @@
 
   <div class="text">
     <div class="textContent" [innerHTML]="textHtml"></div>
-    <div class="button">
+    <div class="button" *ngIf="brennholz">
               <app-pulse-button
         #pulseButtonComponent
         (click)="brennholzClick()"

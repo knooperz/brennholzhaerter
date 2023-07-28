@@ -5,7 +5,7 @@ $mobile: 500px;
   justify-content: space-between;
 
   .image{
-    height: 40vh;
+    height: 30vh;
   }
 }
 
@@ -42,13 +42,16 @@ $mobile: 500px;
     }
 
     mat-form-field {
-      width: 50%;
+      width: 90%;
+    }
+    .half{
+      width: 30%;
     }
 
     .datum{
       margin-top: 1vh;
     }
-
+  
     .personendateButton{
       display: flex;
       justify-content: space-between;
@@ -62,6 +65,21 @@ $mobile: 500px;
 
   button{
     margin-top: 2vh;
+  }
+}
+
+.endButtons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.zusammenfassung{
+  display: flex;
+  width: 100%;
+
+  .zusammenfassungsteil{
+    width: 30%;
+    margin-right: 3%;
   }
 }
 

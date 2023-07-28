@@ -10,13 +10,13 @@ export class DienstleistungenComponent implements OnInit {
   leistungen: Leistung[] = [
     {
       title: 'Brennholz',
-      img: '../../assets/images/brennholz/brennholz.jpg',
+      img: '../../assets/images/brennholz/brennholz1.jpg',
       text: '',
       queryParam: { product: 'brennholz' }
     },
     {
       title: 'Holztransporte',
-      img: '../../assets/images/laster.jpg',
+      img: '../../assets/images/holztransporte/holztransport1.jpg',
       text: '',
       queryParam: { product: 'holztransport' }
     },
@@ -27,7 +27,7 @@ export class DienstleistungenComponent implements OnInit {
       queryParam: { product: 'holztransport' }
     },
     {
-      title: 'Sonderfällungen',
+      title: 'Vermietung mobiler Sägespaltautomat',
       img: '../../assets/images/teamNew.png',
       text: '',
       queryParam: { product: 'holztransport' }
@@ -40,7 +40,7 @@ export class DienstleistungenComponent implements OnInit {
     },
     {
       title: 'LT70 Bandsäge',
-      img: '../../assets/images/laster.jpg',
+      img: '../../assets/images/lt170/lt170_1.jpg',
       text: '',
       queryParam: { product: 'bandsaege' }
     }];

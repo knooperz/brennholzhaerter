@@ -8,7 +8,7 @@
           <label id="groupLabel">Gewünschte Holzart:</label>
           <mat-radio-group aria-label="Select an option" formControlName="holzart">
             <mat-radio-button value="25cm">Buche, trocken (160€)</mat-radio-button>
-            <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button>
+            <!-- <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button> -->
             <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
           </mat-radio-group>
 
@@ -26,7 +26,7 @@
           </mat-form-field>
 
           <mat-form-field class="datum">
-            <mat-label>Gewünschste Lieferdatum (optional)</mat-label>
+            <mat-label>Gewünschste Lieferdatum</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -54,35 +54,35 @@
         <mat-form-field class="half" appearance="standard">
           <mat-label>Straße </mat-label>
           <input matInput maxlength="15" formControlName="str">
-          <mat-error>Name is required</mat-error>
+          <mat-error>Bitte gebe eine Straße an</mat-error>
           <mat-icon matSuffix>home</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
           <mat-label>Hausnummer</mat-label>
           <input matInput type="number" maxlength="15" formControlName="nr">
-          <mat-error>Name is required</mat-error>
+          <mat-error>Bitte gebe eine Hausnummer an</mat-error>
           <mat-icon matSuffix>home</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
           <mat-label>PLZ</mat-label>
           <input matInput maxlength="15" formControlName="plz">
-          <mat-error>Name is required</mat-error>
+          <mat-error>Bitte gebe eine Postleitzahl an</mat-error>
           <mat-icon matSuffix>location_city</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
           <mat-label>Ort</mat-label>
           <input matInput maxlength="15" formControlName="ort">
-          <mat-error>Name is required</mat-error>
+          <mat-error>Bitte gebe eine Ort an</mat-error>
           <mat-icon matSuffix>location_city</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
           <mat-label>Telefonnummer</mat-label>
           <input type="tel" matInput maxlength="15" formControlName="tel">
-          <mat-error>Name is required</mat-error>
+          <mat-error>Bitte gebe eine Telefonnummer an</mat-error>
           <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
 
@@ -102,27 +102,34 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Abschluss</ng-template>
-      <p><b>Brennholzbestellung:</b></p>
-      <p>Holzart: {{brennholzbestellung.controls["holzart"].value }}</p>
-      <p>Scheitholzlänge: {{brennholzbestellung.controls["scheitlaenge"].value }}</p>
-      <p>Raummeter: {{brennholzbestellung.controls["raummeter"].value }}</p>
-      <p>Gewünschtes Lieferdatum: {{brennholzbestellung.controls["date"].value }}</p>
 
-      <p><b>Personendaten:</b></p>
-      <p>Vor- und Nachname: {{personendaten.controls["name"].value }}</p>
-      <p>Straße und Hausnummer: {{personendaten.controls["str"].value }} {{personendaten.controls["nr"].value }}</p>
-      <p>Telefonnummer: {{personendaten.controls["tel"].value }}</p>
-      <p>PLZ und Ort: {{personendaten.controls["plz"].value }} {{personendaten.controls["ort"].value }}</p>
-      <p>E-Mail: {{personendaten.controls["email"].value }}</p>
+      <div class="zusammenfassung">
+        <div class="zusammenfassungsteil">
+          <p><b>Bestelldaten:</b></p>
+          <p>Holzart: {{brennholzbestellung.controls["holzart"].value }}</p>
+          <p>Scheitholzlänge: {{brennholzbestellung.controls["scheitlaenge"].value }}</p>
+          <p>Raummeter: {{brennholzbestellung.controls["raummeter"].value }}</p>
+          <p>Gewünschtes Lieferdatum: {{brennholzbestellung.controls["date"].value }}</p>
+        </div>
+        <div>
+          <p><b>Personendaten:</b></p>
+          <p>Vor- und Nachname: {{personendaten.controls["name"].value }}</p>
+          <p>Straße und Hausnummer: {{personendaten.controls["str"].value }} {{personendaten.controls["nr"].value }}</p>
+          <p>Telefonnummer: {{personendaten.controls["tel"].value }}</p>
+          <p>PLZ und Ort: {{personendaten.controls["plz"].value }} {{personendaten.controls["ort"].value }}</p>
+          <p>E-Mail: {{personendaten.controls["email"].value }}</p>
+        </div>
+      </div>
 
-      <div>
+
+      <div class="endButtons">
         <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
-        <button mat-button (click)="stepper.reset()" color="error">Reset</button>
-        <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellen</button>
-        <app-pulse-button #pulseButtonComponent (click)="sendBestellung()" [buttonText]="'Abschluss'"
+        <!-- <button mat-button (click)="stepper.reset()" color="error">Reset</button> -->
+        <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellung aufgeben</button>
+        <!-- <app-pulse-button #pulseButtonComponent (click)="sendBestellung()" [buttonText]="'Abschluss'"
           [buttonIcon]="'sports_score'" class="button" *ngIf="true">
 
-        </app-pulse-button>
+        </app-pulse-button> -->
       </div>
     </mat-step>
   </mat-stepper>
