@@ -13,6 +13,42 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ProduktComponent } from './produkt/produkt.component';
 import { DienstleistungenComponent } from './dienstleistungen/dienstleistungen.component';
 import { PulseButtonComponent } from './pulse-button/pulse-button.component';
+import { KontaktComponent } from './kontakt/kontakt.component';
+
+import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
+import { ImpressumComponent } from './impressum/impressum.component';
+
+// import {enableProdMode} from '@angular/core';
+// enableProdMode();
+
+const cookieConfig:NgcCookieConsentConfig = {
+  "cookie": {
+    "domain": "localhost"
+  },
+  "position": "bottom-right",
+  "theme": "classic",
+  "palette": {
+    "popup": {
+      "background": "#97c511",
+      "text": "#000000",
+      "link": "#ffffff"
+    },
+    "button": {
+      "background": "#0c276a",
+      "text": "#000000",
+      "border": "transparent"
+    }
+  },
+  "type": "info",
+  "content": {
+    "message": "Diese Webseite verwendet Cookies. ",
+    "dismiss": "OK",
+    "deny": "Refuse cookies",
+    "link": "Mehr",
+    "href": "https://cookiesandyou.com",
+    "policy": "Cookie Policy"
+  }
+};
 
 @NgModule({
   declarations: [
@@ -24,8 +60,11 @@ import { PulseButtonComponent } from './pulse-button/pulse-button.component';
     ProduktComponent,
     PulseButtonComponent,
     DienstleistungenComponent,
+    KontaktComponent,
+    ImpressumComponent,
   ],
   imports: [
+    NgcCookieConsentModule.forRoot(cookieConfig),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
