@@ -7,9 +7,9 @@
 
           <label id="groupLabel">Gewünschte Holzart:</label>
           <mat-radio-group aria-label="Select an option" formControlName="holzart">
-            <mat-radio-button value="25cm">Buche, trocken (160€)</mat-radio-button>
-            <!-- <mat-radio-button value="33cm">Buche, frisch (145€)</mat-radio-button> -->
-            <mat-radio-button value="50cm">Fichte, trocken (110€)</mat-radio-button>
+            <mat-radio-button value="Buche, trocken (150€)">Buche, trocken (150€)</mat-radio-button>
+            <!-- <mat-radio-button value="Buche, frisch (145€)">Buche, frisch (145€)</mat-radio-button> -->
+            <mat-radio-button value="Fichte, trocken (100€)">Fichte, trocken (100€)</mat-radio-button>
           </mat-radio-group>
 
           <label id="groupLabel">Gewünschte Scheitholzlänge:</label>
@@ -19,6 +19,15 @@
             <mat-radio-button value="50cm">50cm</mat-radio-button>
           </mat-radio-group>
 
+          <label id="groupLabel">Wo lagern Sie Ihr Brennholz?</label>
+          <mat-radio-group aria-label="Select an option" formControlName="lagerort">
+            <mat-radio-button value="keller">Keller</mat-radio-button>
+            <mat-radio-button value="garage">Garage</mat-radio-button>
+            <mat-radio-button value="holzschuppen">Holzschuppen</mat-radio-button>
+          </mat-radio-group>
+
+
+
           <mat-form-field appearance="standard">
             <mat-label>Raummeter</mat-label>
             <input type="number" matInput maxlength="15" formControlName="raummeter">
@@ -26,19 +35,20 @@
           </mat-form-field>
 
           <mat-form-field class="datum">
-            <mat-label>Gewünschste Lieferdatum</mat-label>
+            <mat-label>Gewünschstes Lieferdatum (nicht garantiert)</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-          <div>
+          <label>Für die Lieferung berechnen wir pro Anfahrtskilometer 2,00 €. (auf 5er Schritte aufgerundet)<br><br>Preise inkl. 7 % MwSt.</label>
+
+          <div class="button">
             <button mat-raised-button matStepperNext color="accent">Weiter</button>
           </div>
-
         </form>
-        <img class="image" src="../../assets/images/umrechnen.png" alt="" srcset="">
+        <img class="image" src="../../assets/images/brennholzbestellung/raummaße.PNG" alt="" srcset="">
       </div>
     </mat-step>
     <mat-step [stepControl]="personendaten" label="Personendaten">

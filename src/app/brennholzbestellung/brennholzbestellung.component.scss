@@ -5,7 +5,7 @@ $mobile: 500px;
   justify-content: space-between;
 
   .image{
-    height: 30vh;
+    height: 50vh;
   }
 }
 
@@ -16,7 +16,7 @@ $mobile: 500px;
   align-items: center;
 
   .stepper{
-    width: 80%;
+    width: 85%;
   }
 
   .form {
@@ -50,6 +50,7 @@ $mobile: 500px;
 
     .datum{
       margin-top: 1vh;
+      margin-bottom: 3vh;
     }
   
     .personendateButton{
@@ -64,7 +65,10 @@ $mobile: 500px;
   }
 
   button{
-    margin-top: 2vh;
+    margin-top: 3vh;
+    justify-content: left;
+    display: flex;
+
   }
 }
 
