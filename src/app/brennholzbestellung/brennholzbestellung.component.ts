@@ -55,6 +55,9 @@ export class BrennholzbestellungComponent implements OnInit {
   }
 
   sendBestellung() {
+    this.dialog.open(BestellungErfolgreichDialog, {
+      width: '250px'
+    });
     let bestellung: Bestellung = {
       name: this.personendaten.controls["name"].value,
       str: this.personendaten.controls["str"].value,
