@@ -27,7 +27,7 @@ export class DienstleistungenComponent implements OnInit {
       queryParam: { product: 'holztransport' }
     },
     {
-      title: 'Vermietung mobiler Sägespaltautomat',
+      title: 'Vermietung mobiler Sägespaltautomat Vermietung mobiler Meterholzspalter',
       img: '../../assets/images/teamNew.png',
       text: '',
       queryParam: { product: 'holztransport' }
