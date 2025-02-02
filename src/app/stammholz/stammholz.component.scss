@@ -1,0 +1,127 @@
+$mobile: 500px;
+
+.step{
+  display: flex;
+  justify-content: space-between;
+
+  .image{
+    height: 50vh;
+  }
+}
+
+.container {
+  display: flex;
+  margin-top: 2vh;
+  flex-direction: column;
+  align-items: center;
+
+  .stepper{
+    width: 85%;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    height: 100%;
+
+    .daten{
+      width: 100%;
+      display: flex;
+
+    }
+    .spalte{
+      display: flex;
+      flex-direction: column;
+      margin-left: 3%;
+      width: 33%;
+    }
+
+    #groupLabel{
+      font-weight: bold;
+    }
+
+    mat-radio-button {
+      margin-right: 1vw;
+      margin-top: 1vh;
+    }
+    mat-radio-group{
+      margin-bottom: 2vh;
+    }
+
+    .twoItems{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    mat-form-field {
+      width: 90%;
+    }
+    .half{
+      width: 30%;
+    }
+
+    .datum{
+      margin-top: 1vh;
+      margin-bottom: 3vh;
+    }
+
+    .personendateButton{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .info {
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+
+  button{
+    margin-top: 3vh;
+    justify-content: left;
+    display: flex;
+
+  }
+}
+
+.endButtons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.zusammenfassung{
+  display: flex;
+  width: 100%;
+
+  .zusammenfassungsteil{
+    width: 30%;
+    margin-right: 3%;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  mat-form-field {
+    width: 100% !important;
+  }
+
+  .stepper{
+    width: 100% !important;
+  }
+}
+
+$nav-bt-margin: 2%;
+$nav-bt-height: 5vh;
+$nav-bt-width: 10vw;
+$bt-br: 0px;
+$nav-bt-br: $bt-br;
+
+.button{
+  margin: $nav-bt-margin;
+  height: $nav-bt-height;
+  width: $nav-bt-width;
+  border-radius: $nav-bt-br !important;
+
+}
+

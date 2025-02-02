@@ -8,6 +8,7 @@ import { KontaktComponent } from './kontakt/kontakt.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProduktComponent } from './produkt/produkt.component';
 import { StartseiteComponent } from './startseite/startseite.component';
+import { StammholzComponent } from './stammholz/stammholz.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       [
         { path: '', component: StartseiteComponent },
         { path: 'brennholzbestellung', component: BrennholzbestellungComponent },
+        { path: 'stammholzbestellung', component: StammholzComponent },
         { path: 'dienstleistungen/produkt', component: ProduktComponent },
         { path: 'ueberuns', component: AboutUsComponent },
         { path: 'dienstleistungen', component: DienstleistungenComponent},

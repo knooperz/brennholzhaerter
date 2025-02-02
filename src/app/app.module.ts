@@ -17,6 +17,8 @@ import { KontaktComponent } from './kontakt/kontakt.component';
 
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { StammholzComponent } from './stammholz/stammholz.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 // import {enableProdMode} from '@angular/core';
 // enableProdMode();
@@ -62,6 +64,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     DienstleistungenComponent,
     KontaktComponent,
     ImpressumComponent,
+    StammholzComponent,
   ],
   imports: [
     NgcCookieConsentModule.forRoot(cookieConfig),
@@ -69,7 +72,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    TextFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

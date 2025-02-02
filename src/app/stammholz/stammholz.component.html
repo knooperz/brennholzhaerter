@@ -1,0 +1,155 @@
+<div class="container">
+
+  <mat-stepper class="stepper" [linear]="false" #stepper [orientation]="(stepperOrientation | async)!">
+    <mat-step [stepControl]="stammholzbestellung" label="Stammholzbestellung">
+      <div class="step">
+        <form [formGroup]="stammholzbestellung" class="form">
+
+          <label id="groupLabel">Holzart:</label>
+          <mat-radio-group aria-label="Select an option" formControlName="holzart">
+            <mat-radio-button value="buche">Buche</mat-radio-button>
+            <mat-radio-button value="bucheEsche">Buche und Esche</mat-radio-button>
+          </mat-radio-group>
+
+          <label id="groupLabel">Menge*:</label>
+          <mat-radio-group aria-label="Select an option" formControlName="menge">
+            <mat-radio-button value="keller">LKW-Ladung (ca 12-12 Fm)</mat-radio-button>
+            <mat-radio-button value="holzschuppen">LKW mit Anhänger (20-24 Fm)</mat-radio-button>
+          </mat-radio-group>
+
+          <label id="groupLabel">Bemerkungen:</label>
+          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3"
+            cdkAutosizeMaxRows="5" formControlName="bemerkungen"></textarea>
+
+          <label class="hinweis">{{ hinweistextStammholzlaenge }}</label>
+
+          <div class="button">
+            <button mat-raised-button matStepperNext color="accent">Weiter</button>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="personendaten" label="Personendaten">
+      <form [formGroup]="personendaten" class="form">
+
+        <div class="daten">
+          <div class="spalte">
+            <mat-form-field appearance="standard">
+              <mat-label>Vor- und Nachname</mat-label>
+              <input matInput maxlength="15" formControlName="name">
+              <mat-error>Bitte gebe einen Namen an</mat-error>
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Telefonnummer</mat-label>
+              <input type="tel" matInput maxlength="15" formControlName="tel">
+              <mat-error>Bitte gebe eine Telefonnummer an</mat-error>
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>E-Mail</mat-label>
+              <input matInput type="email" formControlName="email" email="true">
+              <mat-error>Bitte gebe eine gültige E-Mail an</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <div class="spalte">
+            <mat-label>Lieferadresse</mat-label>
+            <mat-form-field appearance="standard">
+              <mat-label>Straße </mat-label>
+              <input matInput maxlength="15" formControlName="strLiefer">
+              <mat-error>Bitte gebe eine Straße an</mat-error>
+              <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Hausnummer</mat-label>
+              <input matInput type="number" maxlength="15" formControlName="nrLiefer">
+              <mat-error>Bitte gebe eine Hausnummer an</mat-error>
+              <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>PLZ</mat-label>
+              <input matInput maxlength="15" formControlName="plzLiefer">
+              <mat-error>Bitte gebe eine Postleitzahl an</mat-error>
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Ort</mat-label>
+              <input matInput maxlength="15" formControlName="ortLiefer">
+              <mat-error>Bitte gebe eine Ort an</mat-error>
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <div class="spalte">
+            <mat-label>Rechnungsadresse</mat-label>
+            <mat-checkbox formControlName="rechnungsIstLiefer"
+              (change)="rechnungsadresseCheckboxChange()">Rechnungsadresse ist Lieferadresse</mat-checkbox>
+            <mat-form-field appearance="standard">
+              <mat-label>Straße </mat-label>
+              <input matInput maxlength="15" [(ngModel)]="rechnungsadresse.strasse" formControlName="strRechnungs">
+              <mat-error>Bitte gebe eine Straße an</mat-error>
+              <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Hausnummer</mat-label>
+              <input matInput type="number"
+                [disabled]="this.personendaten.controls['rechnungsIstLiefer'].value ?? false"
+                [(ngModel)]="rechnungsadresse.nummer" maxlength="15" formControlName="nrRechnungs">
+              <mat-error>Bitte gebe eine Hausnummer an</mat-error>
+              <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>PLZ</mat-label>
+              <input matInput maxlength="15"
+                [disabled]="this.personendaten.controls['rechnungsIstLiefer'].value ?? false"
+                [(ngModel)]="rechnungsadresse.plz" formControlName="plzRechnungs">
+              <mat-error>Bitte gebe eine Postleitzahl an</mat-error>
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Ort</mat-label>
+              <input matInput maxlength="15"
+                [disabled]="this.personendaten.controls['rechnungsIstLiefer'].value ?? false"
+                [(ngModel)]="rechnungsadresse.ort" formControlName="ortRechnungs">
+              <mat-error>Bitte gebe eine Ort an</mat-error>
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="personendateButton">
+          <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
+          <button mat-raised-button matStepperNext color="accent">Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Abschluss</ng-template>
+
+      <div class="zusammenfassung">
+
+      </div>
+
+
+      <div class="endButtons">
+        <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
+        <button mat-raised-button (click)="sendBestellung()" color="primary">Bestellung aufgeben</button>
+
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
