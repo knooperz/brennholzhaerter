@@ -34,6 +34,7 @@
 
         <div class="daten">
           <div class="spalte">
+            <mat-label class="spaltenLabel">Personendaten</mat-label>
             <mat-form-field appearance="standard">
               <mat-label>Vor- und Nachname</mat-label>
               <input matInput maxlength="15" formControlName="name">
@@ -57,13 +58,14 @@
           </div>
 
           <div class="spalte">
-            <mat-label>Lieferadresse</mat-label>
+            <mat-label class="spaltenLabel">Lieferadresse</mat-label>
             <mat-form-field appearance="standard">
               <mat-label>Straße </mat-label>
               <input matInput maxlength="15" formControlName="strLiefer">
               <mat-error>Bitte gebe eine Straße an</mat-error>
               <mat-icon matSuffix>home</mat-icon>
             </mat-form-field>
+
 
             <mat-form-field appearance="standard">
               <mat-label>Hausnummer</mat-label>
@@ -88,7 +90,7 @@
           </div>
 
           <div class="spalte">
-            <mat-label>Rechnungsadresse</mat-label>
+            <mat-label class="spaltenLabel">Rechnungsadresse</mat-label>
             <mat-checkbox formControlName="rechnungsIstLiefer"
               (change)="rechnungsadresseCheckboxChange()">Rechnungsadresse ist Lieferadresse</mat-checkbox>
             <mat-form-field appearance="standard">
@@ -129,8 +131,6 @@
 
         </div>
 
-
-
         <div class="personendateButton">
           <button mat-raised-button matStepperPrevious color="accent">Zurück</button>
           <button mat-raised-button matStepperNext color="accent">Weiter</button>
@@ -141,9 +141,29 @@
       <ng-template matStepLabel>Abschluss</ng-template>
 
       <div class="zusammenfassung">
-
+        <div class="zusammenfassungsteil">
+          <p><b>Bestelldaten:</b></p>
+          <p>Holzart: {{stammholzbestellung.controls["holzart"].value }}</p>
+          <p>Menge: {{stammholzbestellung.controls["menge"].value }}</p>
+          <p>Bemerkungen: {{stammholzbestellung.controls["bemerkungen"].value }}</p>
+        </div>
+        <div class="zusammenfassungsteil">
+          <p><b>Personendaten:</b></p>
+          <p>Vor- und Nachname: {{personendaten.controls["name"].value }}</p>
+          <p>Telefonnummer: {{personendaten.controls["tel"].value }}</p>
+          <p>E-Mail: {{personendaten.controls["email"].value }}</p>
+          <p><b>Lieferadresse:</b></p>
+          <p>Straße und Hausnummer: {{personendaten.controls["strLiefer"].value }}
+            {{personendaten.controls["nrLiefer"].value }}</p>
+          <p>PLZ und Ort: {{personendaten.controls["plzLiefer"].value }} {{personendaten.controls["ortLiefer"].value }}
+          </p>
+          <p><b>Rechnungsadresse:</b></p>
+          <p>Straße und Hausnummer: {{personendaten.controls["strRechnungs"].value }}
+            {{personendaten.controls["nrRechnungs"].value }}</p>
+          <p>PLZ und Ort: {{personendaten.controls["plzRechnungs"].value }}
+            {{personendaten.controls["ortRechnungs"].value }}</p>
+        </div>
       </div>
-
 
       <div class="endButtons">
         <button mat-raised-button matStepperPrevious color="accent">Zurück</button>

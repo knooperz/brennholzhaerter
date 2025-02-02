@@ -52,7 +52,7 @@ $mobile: 500px;
       margin-top: 1vh;
       margin-bottom: 3vh;
     }
-  
+
     .personendateButton{
       display: flex;
       justify-content: space-between;
@@ -96,6 +96,22 @@ $mobile: 500px;
   .stepper{
     width: 100% !important;
   }
+
+  .step{
+    display: flex;
+    flex-direction: column;
+  }
+
+  img{
+    margin-top: 10vw;
+    height: 25vh !important;
+  }
+
+  .zusammenfassung{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 $nav-bt-margin: 2%;

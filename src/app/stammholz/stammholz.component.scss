@@ -28,7 +28,6 @@ $mobile: 500px;
     .daten{
       width: 100%;
       display: flex;
-
     }
     .spalte{
       display: flex;
@@ -109,6 +108,24 @@ $mobile: 500px;
   .stepper{
     width: 100% !important;
   }
+
+  .daten{
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .spalte{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 80vw !important;
+  }
+
+  .zusammenfassung{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 $nav-bt-margin: 2%;
@@ -123,5 +140,10 @@ $nav-bt-br: $bt-br;
   width: $nav-bt-width;
   border-radius: $nav-bt-br !important;
 
+}
+
+
+.spaltenLabel{
+  font-weight: bold;
 }
 
